@@ -3,7 +3,6 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { Flower2, Citrus, TreeDeciduous } from "lucide-react"
-import { GrainGradient } from "@paper-design/shaders-react"
 
 const notes = [
   {
@@ -11,21 +10,30 @@ const notes = [
     description: "The first impression—bright and captivating",
     icon: Citrus,
     ingredients: ["Bergamot", "Pink Pepper", "Mandarin", "Cardamom"],
-    color: "from-amber-500/20 to-orange-500/20",
+    glow: "from-amber-400/30 to-orange-400/30",
+    accent: "from-amber-400 to-orange-400",
+    iconBg: "from-amber-400/25 to-orange-400/25",
+    border: "border-amber-400/30",
   },
   {
     type: "Heart Notes",
     description: "The soul of the fragrance—rich and complex",
     icon: Flower2,
     ingredients: ["Bulgarian Rose", "Jasmine Absolute", "Iris", "Violet"],
-    color: "from-rose-500/20 to-pink-500/20",
+    glow: "from-rose-400/30 to-pink-400/30",
+    accent: "from-rose-400 to-pink-400",
+    iconBg: "from-rose-400/25 to-pink-400/25",
+    border: "border-rose-400/30",
   },
   {
     type: "Base Notes",
     description: "The lasting memory—deep and sensual",
     icon: TreeDeciduous,
     ingredients: ["Oud Wood", "Amber", "Musk", "Sandalwood"],
-    color: "from-stone-500/20 to-neutral-500/20",
+    glow: "from-amber-700/30 to-stone-500/30",
+    accent: "from-amber-700 to-stone-400",
+    iconBg: "from-amber-700/25 to-stone-500/25",
+    border: "border-amber-700/30",
   },
 ]
 
@@ -35,24 +43,16 @@ export function FragranceNotesSection() {
 
   return (
     <section ref={ref} className="relative py-24 md:py-32 text-primary-foreground overflow-hidden">
-      {/* Grain Gradient Background */}
-      <div className="absolute inset-0">
-        <GrainGradient
-          style={{ height: "100%", width: "100%" }}
-          colorBack="hsl(0, 0%, 0%)"
-          softness={0.76}
-          intensity={0.45}
-          noise={0}
-          shape="corners"
-          offsetX={0}
-          offsetY={0}
-          scale={1}
-          rotation={0}
-          speed={0}
-          colors={["hsl(14, 100%, 57%)", "hsl(45, 100%, 51%)", "hsl(340, 82%, 52%)"]}
-        />
-      </div>
-      
+      {/* CSS animated gradient — runs on compositor, never blocks scroll */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: "linear-gradient(135deg, hsl(28,10%,5%) 0%, hsl(42,55%,22%) 35%, hsl(22,45%,16%) 65%, hsl(355,18%,13%) 100%)",
+          backgroundSize: "300% 300%",
+          animation: "gradient-shift 18s ease infinite",
+        }}
+      />
+
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -79,38 +79,41 @@ export function FragranceNotesSection() {
                 transition={{ duration: 0.8, delay: index * 0.15 }}
                 className="group relative"
               >
-                {/* Glassmorphism Card */}
-                <div className="relative p-8 lg:p-10 rounded-lg border border-primary-foreground/10 bg-primary-foreground/5 backdrop-blur-sm hover:bg-primary-foreground/10 transition-all duration-500">
+                <div className={`relative p-8 lg:p-10 rounded-lg border ${note.border} bg-white/8 backdrop-blur-md hover:bg-white/12 transition-all duration-500 overflow-hidden`}>
+                  {/* Colored top accent line */}
+                  <div className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r ${note.accent} opacity-80`} />
+
+                  {/* Corner ambient glow */}
+                  <div className={`absolute -top-10 -right-10 w-40 h-40 rounded-full bg-gradient-to-br ${note.glow} blur-2xl pointer-events-none`} />
+
                   {/* Icon */}
-                  <div className="mb-6">
-                    <div className={`inline-flex p-4 rounded-full bg-gradient-to-br ${note.color}`}>
+                  <div className="relative mb-6">
+                    <div className={`inline-flex p-4 rounded-full bg-gradient-to-br ${note.iconBg} border border-primary-foreground/15`}>
                       <Icon className="h-6 w-6 text-primary-foreground" />
                     </div>
                   </div>
 
                   {/* Content */}
-                  <h3 className="font-serif text-2xl mb-2">{note.type}</h3>
-                  <p className="text-sm text-primary-foreground/60 mb-8">
+                  <h3 className="relative font-serif text-2xl mb-2 text-primary-foreground">{note.type}</h3>
+                  <p className="relative text-sm text-primary-foreground/65 mb-8 leading-relaxed">
                     {note.description}
                   </p>
 
                   {/* Ingredients */}
-                  <div className="space-y-3">
+                  <div className="relative space-y-3">
                     {note.ingredients.map((ingredient) => (
                       <div
                         key={ingredient}
-                        className="flex items-center gap-3 text-sm text-primary-foreground/80"
+                        className="flex items-center gap-3 text-sm text-primary-foreground/90"
                       >
-                        <div className="w-1 h-1 rounded-full bg-gold" />
+                        <div className={`w-1.5 h-1.5 rounded-full shrink-0 bg-gradient-to-br ${note.accent}`} />
                         <span>{ingredient}</span>
                       </div>
                     ))}
                   </div>
 
-                  {/* Hover Glow Effect */}
-                  <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <div className={`absolute inset-0 rounded-lg bg-gradient-to-br ${note.color} blur-xl`} />
-                  </div>
+                  {/* Hover bottom glow */}
+                  <div className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r ${note.accent} opacity-0 group-hover:opacity-60 transition-opacity duration-500`} />
                 </div>
               </motion.div>
             )
