@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, useInView } from "framer-motion"
-import { useRef, useEffect, useState, useCallback } from "react"
+import { useRef } from "react"
 import { Star, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -85,59 +85,13 @@ export function TestimonialsSection() {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const scrollRef = useRef<HTMLDivElement>(null)
-  const [currentIndex, setCurrentIndex] = useState(0)
-  
-  const totalItems = testimonials.length
   const cardWidth = 400
   const gap = 24
 
-  // Create infinite loop by tripling the items
-  const infiniteTestimonials = [...testimonials, ...testimonials, ...testimonials]
-
-  // Initialize to middle set
-  useEffect(() => {
-    if (scrollRef.current) {
-      const middleStart = totalItems * (cardWidth + gap)
-      scrollRef.current.scrollLeft = middleStart
-    }
-  }, [totalItems])
-
-  // Handle infinite scroll logic
-  const handleScroll = useCallback(() => {
-    if (!scrollRef.current) return
-    
-    const container = scrollRef.current
-    const scrollLeft = container.scrollLeft
-    const singleSetWidth = totalItems * (cardWidth + gap)
-    
-    // If scrolled to the end (third set), jump to middle set
-    if (scrollLeft >= singleSetWidth * 2) {
-      container.scrollLeft = scrollLeft - singleSetWidth
-    }
-    // If scrolled to the beginning, jump to middle set
-    else if (scrollLeft <= 0) {
-      container.scrollLeft = scrollLeft + singleSetWidth
-    }
-    
-    // Calculate current index for display
-    const normalizedScroll = scrollLeft % singleSetWidth
-    const index = Math.round(normalizedScroll / (cardWidth + gap))
-    setCurrentIndex(index % totalItems)
-  }, [totalItems])
-
-  useEffect(() => {
-    const container = scrollRef.current
-    if (container) {
-      container.addEventListener("scroll", handleScroll)
-      return () => container.removeEventListener("scroll", handleScroll)
-    }
-  }, [handleScroll])
-
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = cardWidth + gap
       scrollRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
+        left: direction === "left" ? -(cardWidth + gap) : cardWidth + gap,
         behavior: "smooth",
       })
     }
@@ -185,21 +139,25 @@ export function TestimonialsSection() {
 
       {/* Slider Container */}
       <div className="relative">
-        <motion.div
+        <div
           ref={scrollRef}
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8 }}
           className="flex gap-6 overflow-x-auto pb-4 px-6 lg:px-8 snap-x snap-mandatory"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            opacity: isInView ? 1 : 0,
+            transition: "opacity 0.8s ease",
+          }}
         >
-          {infiniteTestimonials.map((testimonial, index) => (
-            <motion.div
-              key={`${testimonial.id}-${index}`}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: (index % totalItems) * 0.05 }}
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={testimonial.id}
               className="shrink-0 w-[350px] md:w-[400px] p-8 bg-secondary rounded-lg snap-center"
+              style={{
+                opacity: isInView ? 1 : 0,
+                transform: isInView ? "none" : "translateY(30px)",
+                transition: `opacity 0.6s ease ${index * 0.05}s, transform 0.6s ease ${index * 0.05}s`,
+              }}
             >
               {/* Rating */}
               <div className="flex gap-1 mb-4">
@@ -220,6 +178,7 @@ export function TestimonialsSection() {
                     src={testimonial.image}
                     alt={testimonial.name}
                     fill
+                    loading="eager"
                     className="object-cover"
                   />
                 </div>
@@ -228,22 +187,11 @@ export function TestimonialsSection() {
                   <p className="text-sm text-muted-foreground">{testimonial.location}</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
-      {/* Progress Indicator */}
-      <div className="flex justify-center gap-2 mt-8">
-        {testimonials.map((_, index) => (
-          <div
-            key={index}
-            className={`h-1 rounded-full transition-all duration-300 ${
-              index === currentIndex ? "w-8 bg-foreground" : "w-2 bg-foreground/20"
-            }`}
-          />
-        ))}
-      </div>
     </section>
   )
 }

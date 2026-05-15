@@ -48,7 +48,7 @@ export function FragranceNotesSection() {
           offsetY={0}
           scale={1}
           rotation={0}
-          speed={1}
+          speed={0}
           colors={["hsl(14, 100%, 57%)", "hsl(45, 100%, 51%)", "hsl(340, 82%, 52%)"]}
         />
       </div>
