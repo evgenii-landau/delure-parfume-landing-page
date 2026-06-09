@@ -70,7 +70,7 @@ export function BestsellersSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const scrollRef = useRef<HTMLDivElement>(null)
   const cardWidth = 350
-  const gap = 24
+  const gap = 32
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -130,7 +130,7 @@ export function BestsellersSection() {
       {/* Horizontal Scroll */}
       <div
         ref={scrollRef}
-        className="flex gap-6 overflow-x-auto pb-8 px-6 lg:px-8 snap-x snap-mandatory scrollbar-hide"
+        className="flex gap-8 overflow-x-auto pb-8 px-6 lg:px-8 snap-x snap-mandatory scrollbar-hide"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {products.map((product, index) => (
@@ -143,30 +143,25 @@ export function BestsellersSection() {
               transition: `opacity 0.8s ease ${index * 0.05}s, transform 0.8s ease ${index * 0.05}s`,
             }}
           >
-            <div className="relative aspect-[3/4] overflow-hidden bg-secondary mb-6">
-              <Image
-                src={product.image}
-                alt={product.name}
-                fill
-                loading="eager"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-500" />
-            </div>
-            
-            <div className="flex justify-between items-start">
-              <div>
-                <h3 className="font-serif text-xl mb-1">{product.name}</h3>
-                <p className="text-sm text-muted-foreground">{product.description}</p>
+            <div className="bg-secondary/40 p-4 md:p-5 overflow-hidden">
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  loading="eager"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                />
               </div>
-              <p className="font-serif text-lg">{product.price}</p>
             </div>
-            
-            <Button
-              className="mt-4 w-full bg-foreground text-background hover:bg-foreground/90 text-sm tracking-widest uppercase"
-            >
-              Shop now
-            </Button>
+
+            <div className="mt-5 flex items-start justify-between gap-4">
+              <h3 className="font-sans text-sm font-medium uppercase tracking-widest text-charcoal">
+                {product.name}
+              </h3>
+              <p className="font-serif text-lg text-foreground/80 shrink-0">{product.price}</p>
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground">{product.description}</p>
           </div>
         ))}
       </div>
