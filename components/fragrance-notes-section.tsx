@@ -2,40 +2,30 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Flower2, Citrus, TreeDeciduous } from "lucide-react"
 
 const notes = [
   {
     type: "Top Notes",
     description: "The first impression—bright and captivating",
-    icon: Citrus,
     ingredients: ["Bergamot", "Pink Pepper", "Mandarin", "Cardamom"],
-    glow: "from-amber-400/30 to-orange-400/30",
-    accent: "from-amber-400 to-orange-400",
-    iconBg: "from-amber-400/25 to-orange-400/25",
-    border: "border-amber-400/30",
   },
   {
     type: "Heart Notes",
     description: "The soul of the fragrance—rich and complex",
-    icon: Flower2,
     ingredients: ["Bulgarian Rose", "Jasmine Absolute", "Iris", "Violet"],
-    glow: "from-rose-400/30 to-pink-400/30",
-    accent: "from-rose-400 to-pink-400",
-    iconBg: "from-rose-400/25 to-pink-400/25",
-    border: "border-rose-400/30",
   },
   {
     type: "Base Notes",
     description: "The lasting memory—deep and sensual",
-    icon: TreeDeciduous,
     ingredients: ["Oud Wood", "Amber", "Musk", "Sandalwood"],
-    glow: "from-amber-700/30 to-stone-500/30",
-    accent: "from-amber-700 to-stone-400",
-    iconBg: "from-amber-700/25 to-stone-500/25",
-    border: "border-amber-700/30",
   },
 ]
+
+function handleSpotlight(e: React.MouseEvent<HTMLDivElement>) {
+  const rect = e.currentTarget.getBoundingClientRect()
+  e.currentTarget.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`)
+  e.currentTarget.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`)
+}
 
 export function FragranceNotesSection() {
   const ref = useRef<HTMLDivElement>(null)
@@ -67,55 +57,49 @@ export function FragranceNotesSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {notes.map((note, index) => {
-            const Icon = note.icon
-            return (
-              <motion.div
-                key={note.type}
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.15 }}
-                className="group relative"
-              >
-                <div className={`relative p-8 lg:p-10 rounded-lg border ${note.border} bg-white/70 backdrop-blur-sm shadow-sm hover:bg-white hover:shadow-md transition-all duration-500 overflow-hidden`}>
-                  {/* Colored top accent line */}
-                  <div className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r ${note.accent} opacity-80`} />
+          {notes.map((note, index) => (
+            <motion.div
+              key={note.type}
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: index * 0.15 }}
+              onMouseMove={handleSpotlight}
+              className="group relative overflow-hidden rounded-xl bg-[#FBF9F6] p-8 lg:p-10 transition-all duration-500 ease-out hover:shadow-lg"
+            >
+              {/* Warm spotlight that follows the cursor inside the card */}
+              <div
+                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
+                style={{
+                  background:
+                    "radial-gradient(360px circle at var(--mouse-x) var(--mouse-y), rgba(240,230,210,0.15), transparent 45%)",
+                }}
+              />
 
-                  {/* Corner ambient glow */}
-                  <div className={`absolute -top-10 -right-10 w-40 h-40 rounded-full bg-gradient-to-br ${note.glow} blur-2xl pointer-events-none`} />
+              <div className="relative">
+                <span className="block text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-6">
+                  {String(index + 1).padStart(2, "0")} / {note.type.split(" ")[0]}
+                </span>
 
-                  {/* Icon */}
-                  <div className="relative mb-6">
-                    <div className={`inline-flex p-4 rounded-full bg-gradient-to-br ${note.iconBg} border border-foreground/10`}>
-                      <Icon className="h-6 w-6 text-foreground" />
-                    </div>
-                  </div>
+                <h3 className="font-serif text-2xl lg:text-3xl mb-3">{note.type}</h3>
+                <p className="text-sm text-muted-foreground mb-8 leading-relaxed">
+                  {note.description}
+                </p>
 
-                  {/* Content */}
-                  <h3 className="relative font-serif text-2xl mb-2 text-foreground">{note.type}</h3>
-                  <p className="relative text-sm text-muted-foreground mb-8 leading-relaxed">
-                    {note.description}
-                  </p>
-
-                  {/* Ingredients */}
-                  <div className="relative space-y-3">
-                    {note.ingredients.map((ingredient) => (
-                      <div
-                        key={ingredient}
-                        className="flex items-center gap-3 text-sm text-foreground/80"
-                      >
-                        <div className={`w-1.5 h-1.5 rounded-full shrink-0 bg-gradient-to-br ${note.accent}`} />
-                        <span>{ingredient}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Hover bottom glow */}
-                  <div className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r ${note.accent} opacity-0 group-hover:opacity-60 transition-opacity duration-500`} />
-                </div>
-              </motion.div>
-            )
-          })}
+                <ul>
+                  {note.ingredients.map((ingredient, i) => (
+                    <li
+                      key={ingredient}
+                      className={`py-3 text-sm tracking-wide text-foreground/80 ${
+                        i > 0 ? "border-t border-foreground/15" : ""
+                      }`}
+                    >
+                      {ingredient}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
