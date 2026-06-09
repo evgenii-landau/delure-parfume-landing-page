@@ -42,14 +42,12 @@ export function FragranceNotesSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="relative py-24 md:py-32 text-primary-foreground overflow-hidden">
-      {/* CSS animated gradient — runs on compositor, never blocks scroll */}
+    <section ref={ref} className="relative py-24 md:py-32 text-foreground overflow-hidden">
+      {/* Soft cream block that eases in and out of the ivory sections above and below */}
       <div
         className="absolute inset-0"
         style={{
-          background: "linear-gradient(135deg, hsl(28,10%,5%) 0%, hsl(42,55%,22%) 35%, hsl(22,45%,16%) 65%, hsl(355,18%,13%) 100%)",
-          backgroundSize: "300% 300%",
-          animation: "gradient-shift 18s ease infinite",
+          background: "linear-gradient(180deg, var(--background) 0%, #F4F0EA 16%, #EFEAE2 50%, #F4F0EA 84%, var(--background) 100%)",
         }}
       />
 
@@ -60,7 +58,7 @@ export function FragranceNotesSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 md:mb-24"
         >
-          <p className="text-sm tracking-[0.3em] uppercase text-primary-foreground/60 mb-6">
+          <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-6">
             The Composition
           </p>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-balance">
@@ -79,7 +77,7 @@ export function FragranceNotesSection() {
                 transition={{ duration: 0.8, delay: index * 0.15 }}
                 className="group relative"
               >
-                <div className={`relative p-8 lg:p-10 rounded-lg border ${note.border} bg-white/8 backdrop-blur-md hover:bg-white/12 transition-all duration-500 overflow-hidden`}>
+                <div className={`relative p-8 lg:p-10 rounded-lg border ${note.border} bg-white/70 backdrop-blur-sm shadow-sm hover:bg-white hover:shadow-md transition-all duration-500 overflow-hidden`}>
                   {/* Colored top accent line */}
                   <div className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r ${note.accent} opacity-80`} />
 
@@ -88,14 +86,14 @@ export function FragranceNotesSection() {
 
                   {/* Icon */}
                   <div className="relative mb-6">
-                    <div className={`inline-flex p-4 rounded-full bg-gradient-to-br ${note.iconBg} border border-primary-foreground/15`}>
-                      <Icon className="h-6 w-6 text-primary-foreground" />
+                    <div className={`inline-flex p-4 rounded-full bg-gradient-to-br ${note.iconBg} border border-foreground/10`}>
+                      <Icon className="h-6 w-6 text-foreground" />
                     </div>
                   </div>
 
                   {/* Content */}
-                  <h3 className="relative font-serif text-2xl mb-2 text-primary-foreground">{note.type}</h3>
-                  <p className="relative text-sm text-primary-foreground/65 mb-8 leading-relaxed">
+                  <h3 className="relative font-serif text-2xl mb-2 text-foreground">{note.type}</h3>
+                  <p className="relative text-sm text-muted-foreground mb-8 leading-relaxed">
                     {note.description}
                   </p>
 
@@ -104,7 +102,7 @@ export function FragranceNotesSection() {
                     {note.ingredients.map((ingredient) => (
                       <div
                         key={ingredient}
-                        className="flex items-center gap-3 text-sm text-primary-foreground/90"
+                        className="flex items-center gap-3 text-sm text-foreground/80"
                       >
                         <div className={`w-1.5 h-1.5 rounded-full shrink-0 bg-gradient-to-br ${note.accent}`} />
                         <span>{ingredient}</span>

@@ -73,14 +73,14 @@ export function HeroSection() {
         >
           <Button
             size="lg"
-            className="bg-foreground text-background hover:bg-foreground/90 px-8 py-6 text-sm tracking-widest uppercase"
+            className="bg-foreground text-background hover:bg-foreground/90 px-8 py-6 text-sm font-medium tracking-widest uppercase"
           >
             Discover the collection
           </Button>
           <Button
             variant="outline"
             size="lg"
-            className="border-foreground/30 hover:bg-foreground/5 px-8 py-6 text-sm tracking-widest uppercase"
+            className="border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background px-8 py-6 text-sm font-medium tracking-widest uppercase"
           >
             <Play className="mr-2 h-4 w-4" />
             Watch the story
