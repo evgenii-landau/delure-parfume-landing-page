@@ -19,12 +19,12 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: 'DELURE | Luxury Perfume',
-  description: 'Discover your signature scent. DELURE creates exceptional fragrances that become an extension of your identity.',
+  description: 'DELURE composes niche fragrances by hand in Grasse, built from rare materials and made to become your own.',
   keywords: ['luxury perfume', 'fragrance', 'signature scent', 'premium perfume', 'DELURE'],
   authors: [{ name: 'DELURE' }],
   openGraph: {
     title: 'DELURE | Luxury Perfume',
-    description: 'Discover your signature scent. DELURE creates exceptional fragrances that become an extension of your identity.',
+    description: 'DELURE composes niche fragrances by hand in Grasse, built from rare materials and made to become your own.',
     type: 'website',
   },
 }

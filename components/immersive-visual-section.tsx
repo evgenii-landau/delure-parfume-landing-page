@@ -18,20 +18,32 @@ export function ImmersiveVisualSection() {
     <section ref={ref} className="relative h-screen overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0">
         <Image
-          src="/images/immersive.jpg"
+          src="/images/immersive.webp"
           alt="Cinematic perfume atmosphere"
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-foreground/40" />
+        {/* Warm coffee gradient — darkens the bright left without flattening the photo */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(100deg, rgba(26,20,16,0.7) 0%, rgba(26,20,16,0.34) 55%, rgba(28,22,17,0.5) 100%)",
+          }}
+        />
       </motion.div>
 
       <motion.div
         style={{ opacity }}
-        className="relative h-full flex items-center justify-center text-center px-6"
+        className="relative h-full flex items-center justify-center text-center px-8"
       >
-        <p className="font-serif text-3xl md:text-5xl lg:text-6xl text-primary-foreground max-w-4xl leading-tight text-balance">
-          {"\"Elegance is not about being noticed, it's about being remembered.\""}
+        <p
+          className="font-serif text-4xl md:text-6xl lg:text-7xl text-primary-foreground max-w-5xl leading-[1.6] tracking-[0.03em] text-balance"
+          style={{ textShadow: "0 0 24px rgba(26,20,16,0.5)" }}
+        >
+          <span className="text-[1.4em] leading-[0] align-[-0.15em] text-primary-foreground/50">&ldquo;</span>
+          Elegance is not about being noticed, it&rsquo;s about being remembered.
+          <span className="text-[1.4em] leading-[0] align-[-0.35em] text-primary-foreground/50">&rdquo;</span>
         </p>
       </motion.div>
     </section>

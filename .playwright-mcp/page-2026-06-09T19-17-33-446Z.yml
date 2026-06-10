@@ -1,0 +1,323 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - navigation [ref=e4]:
+      - link "DELURE" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: DELURE
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - link "Collection" [ref=e9] [cursor=pointer]:
+            - /url: "#collection"
+            - text: Collection
+          - link "Our Story" [ref=e10] [cursor=pointer]:
+            - /url: "#story"
+            - text: Our Story
+          - link "Experience" [ref=e11] [cursor=pointer]:
+            - /url: "#experience"
+            - text: Experience
+        - button "Shopping bag" [ref=e12]:
+          - img
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - paragraph [ref=e15]: Worn like a memory
+        - heading "A scent that becomes your signature" [level=1] [ref=e16]:
+          - text: A scent that becomes
+          - text: your signature
+        - paragraph [ref=e17]: A fragrance remembers what words forget. Each one is built from rare materials and left to settle on the skin, where it becomes unmistakably yours.
+        - generic [ref=e18]:
+          - button "Discover the collection" [ref=e19]
+          - button "Watch the story" [ref=e20]:
+            - img
+            - text: Watch the story
+      - img "DELURE perfume bottles and boxes" [ref=e22]
+    - generic [ref=e25]:
+      - img "The art of perfume making" [ref=e27]
+      - generic [ref=e28]:
+        - paragraph [ref=e29]: Our Story
+        - heading "Composed in Grasse, never rushed" [level=2] [ref=e30]
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Our house began in Grasse, the town where perfume has been a craft for three hundred years. We make scent the slow way, the way it was made before machines learned to imitate it.
+          - paragraph [ref=e33]: A single formula can take our perfumers years. The rose is cut in the fields of Bulgaria before the dew lifts. The oud is left to age. Nothing is hurried, and nothing is hidden.
+          - paragraph [ref=e34]: Every bottle is filled by hand. On the skin it keeps moving, opening and fading through the day, never quite the same on two people.
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - paragraph [ref=e37]: 25+
+            - paragraph [ref=e38]: Years of Craft
+          - generic [ref=e40]:
+            - paragraph [ref=e41]: 40+
+            - paragraph [ref=e42]: Countries
+          - generic [ref=e44]:
+            - paragraph [ref=e45]: 100%
+            - paragraph [ref=e46]: Natural
+    - generic [ref=e49]:
+      - generic [ref=e50]:
+        - paragraph [ref=e51]: The Composition
+        - heading "A symphony of rare ingredients" [level=2] [ref=e52]
+      - generic [ref=e53]:
+        - generic [ref=e55]:
+          - generic [ref=e56]: 01 / Top
+          - heading "Top Notes" [level=3] [ref=e57]
+          - paragraph [ref=e58]: The opening. Bright, and gone too soon.
+          - list [ref=e59]:
+            - listitem [ref=e60]: Bergamot
+            - listitem [ref=e61]: Pink Pepper
+            - listitem [ref=e62]: Mandarin
+            - listitem [ref=e63]: Cardamom
+        - generic [ref=e65]:
+          - generic [ref=e66]: 02 / Heart
+          - heading "Heart Notes" [level=3] [ref=e67]
+          - paragraph [ref=e68]: The heart. Where the fragrance truly lives.
+          - list [ref=e69]:
+            - listitem [ref=e70]: Bulgarian Rose
+            - listitem [ref=e71]: Jasmine Absolute
+            - listitem [ref=e72]: Iris
+            - listitem [ref=e73]: Violet
+        - generic [ref=e75]:
+          - generic [ref=e76]: 03 / Base
+          - heading "Base Notes" [level=3] [ref=e77]
+          - paragraph [ref=e78]: The trail. What stays after you leave.
+          - list [ref=e79]:
+            - listitem [ref=e80]: Oud Wood
+            - listitem [ref=e81]: Amber
+            - listitem [ref=e82]: Musk
+            - listitem [ref=e83]: Sandalwood
+    - generic [ref=e84]:
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - paragraph [ref=e88]: The Collection
+          - heading "Signatures of the house" [level=2] [ref=e89]
+        - generic [ref=e90]:
+          - generic [ref=e91]:
+            - button [ref=e92]:
+              - img
+            - button [ref=e93]:
+              - img
+          - button "View all fragrances" [ref=e94]
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - img "Lumière d'Or" [ref=e99]
+          - generic [ref=e100]:
+            - heading "Lumière d'Or" [level=3] [ref=e101]
+            - paragraph [ref=e102]: Radiant citrus with a golden heart of pure amber.
+            - paragraph [ref=e103]: $145
+        - generic [ref=e104]:
+          - img "Velours Rose" [ref=e107]
+          - generic [ref=e108]:
+            - heading "Velours Rose" [level=3] [ref=e109]
+            - paragraph [ref=e110]: A velvet touch of powdery rose wrapped in soft leather.
+            - paragraph [ref=e111]: $165
+        - generic [ref=e112]:
+          - img "Nuit Éternelle" [ref=e115]
+          - generic [ref=e116]:
+            - heading "Nuit Éternelle" [level=3] [ref=e117]
+            - paragraph [ref=e118]: The enigmatic essence of a starlit midnight.
+            - paragraph [ref=e119]: $195
+        - generic [ref=e120]:
+          - img "Jardin Émeraude" [ref=e123]
+          - generic [ref=e124]:
+            - heading "Jardin Émeraude" [level=3] [ref=e125]
+            - paragraph [ref=e126]: Fresh, crisp greens with a deep woody soul.
+            - paragraph [ref=e127]: $155
+        - generic [ref=e128]:
+          - img "Brume Céleste" [ref=e131]
+          - generic [ref=e132]:
+            - heading "Brume Céleste" [level=3] [ref=e133]
+            - paragraph [ref=e134]: Ethereal white musk balanced with pure marble elegance.
+            - paragraph [ref=e135]: $175
+        - generic [ref=e136]:
+          - img "Oud Impérial" [ref=e139]
+          - generic [ref=e140]:
+            - heading "Oud Impérial" [level=3] [ref=e141]
+            - paragraph [ref=e142]: A majestic blend of smoky charcoal and rich gold filigree oud.
+            - paragraph [ref=e143]: $210
+        - generic [ref=e144]:
+          - img "Éclat Pur" [ref=e147]
+          - generic [ref=e148]:
+            - heading "Éclat Pur" [level=3] [ref=e149]
+            - paragraph [ref=e150]: Crystal-clear minimalist fragrance with a striking platinum finish.
+            - paragraph [ref=e151]: $150
+    - generic [ref=e152]:
+      - img "Cinematic perfume atmosphere" [ref=e154]
+      - paragraph [ref=e157]: “Elegance is not about being noticed, it’s about being remembered.”
+    - generic [ref=e159]:
+      - generic [ref=e160]:
+        - paragraph [ref=e161]: Why DELURE
+        - heading "Why it lingers" [level=2] [ref=e162]
+      - generic [ref=e163]:
+        - generic [ref=e164]:
+          - generic [ref=e166]: "01"
+          - heading "It stays with you" [level=3] [ref=e167]
+          - paragraph [ref=e168]: A single application carries through the day, shifting as it goes. Twelve hours, often more.
+        - generic [ref=e169]:
+          - generic [ref=e171]: "02"
+          - heading "Made by hand" [level=3] [ref=e172]
+          - paragraph [ref=e173]: Every formula is composed by our perfumers in Grasse, the old way, without shortcuts.
+        - generic [ref=e174]:
+          - generic [ref=e176]: "03"
+          - heading "Honest materials" [level=3] [ref=e177]
+          - paragraph [ref=e178]: We buy our naturals from growers we know, and we pay what they are worth.
+        - generic [ref=e179]:
+          - generic [ref=e181]: "04"
+          - heading "Kept, not discarded" [level=3] [ref=e182]
+          - paragraph [ref=e183]: Heavy glass and refillable bottles, made to live on your shelf rather than in the bin.
+    - generic [ref=e184]:
+      - generic [ref=e186]:
+        - generic [ref=e187]:
+          - paragraph [ref=e188]: Testimonials
+          - heading "Loved by discerning souls" [level=2] [ref=e189]
+        - generic [ref=e190]:
+          - button [ref=e191]:
+            - img
+          - button [ref=e192]:
+            - img
+      - generic [ref=e193]:
+        - figure "— Isabelle M., Paris, France" [ref=e194]:
+          - blockquote [ref=e195]: I wore Éclat Noir the morning of my wedding. Now I cannot smell it without going straight back there.
+          - generic [ref=e196]: — Isabelle M., Paris, France
+        - figure "— Alexander K., London, UK" [ref=e197]:
+          - blockquote [ref=e198]: It is still there when I get home at night, faint on my collar. No other scent has done that for me.
+          - generic [ref=e199]: — Alexander K., London, UK
+        - figure "— Sofia L., Milan, Italy" [ref=e200]:
+          - blockquote [ref=e201]: Strangers stop me to ask what I am wearing. I have started keeping the name to myself.
+          - generic [ref=e202]: — Sofia L., Milan, Italy
+        - figure "— James R., New York, USA" [ref=e203]:
+          - blockquote [ref=e204]: I have a shelf full of bottles I no longer reach for. This is the only one I have ever repurchased.
+          - generic [ref=e205]: — James R., New York, USA
+        - figure "— Emma T., Sydney, Australia" [ref=e206]:
+          - blockquote [ref=e207]: By evening it smells like a different perfume than the one I sprayed at dawn. I love watching it change.
+          - generic [ref=e208]: — Emma T., Sydney, Australia
+        - figure "— Yuki H., Tokyo, Japan" [ref=e209]:
+          - blockquote [ref=e210]: Lumière d'Or is quiet. It does not announce itself, and that is exactly why people remember it.
+          - generic [ref=e211]: — Yuki H., Tokyo, Japan
+        - figure "— Khalid A., Dubai, UAE" [ref=e212]:
+          - blockquote [ref=e213]: I have collected oud for twenty years. Theirs is the real thing, and I do not say that lightly.
+          - generic [ref=e214]: — Khalid A., Dubai, UAE
+        - figure "— Astrid N., Stockholm, Sweden" [ref=e215]:
+          - blockquote [ref=e216]: Brume Céleste smells like cold air and clean skin. I wear it on the days I want to feel like myself.
+          - generic [ref=e217]: — Astrid N., Stockholm, Sweden
+        - figure "— Lucas P., São Paulo, Brazil" [ref=e218]:
+          - blockquote [ref=e219]: My grandmother asked if it was French. When I said yes, she smiled like she already knew.
+          - generic [ref=e220]: — Lucas P., São Paulo, Brazil
+    - generic [ref=e222]:
+      - generic [ref=e223]:
+        - paragraph [ref=e224]: The Unboxing
+        - heading "An experience that begins before the first spritz" [level=2] [ref=e225]
+      - generic [ref=e226]:
+        - img "Luxury unboxing experience" [ref=e228]
+        - generic [ref=e229]:
+          - img "Premium glass bottle" [ref=e231]
+          - img "Luxurious packaging" [ref=e233]
+          - generic [ref=e234]:
+            - heading "A quiet ritual" [level=3] [ref=e235]
+            - paragraph [ref=e236]: It begins before the scent. The box is heavy in the hand. You lift the lid against the soft pull of a magnet, fold back the tissue, and loosen the ribbon. The glass underneath is cool and weighted, blown by hand. By the time you spray, the wearing has already begun.
+    - generic [ref=e238]:
+      - generic [ref=e239]:
+        - paragraph [ref=e240]: Questions
+        - heading "Frequently asked" [level=2] [ref=e241]
+      - generic [ref=e243]:
+        - heading "How long do DELURE fragrances last?" [level=3] [ref=e245]:
+          - button "How long do DELURE fragrances last?" [ref=e246]:
+            - text: How long do DELURE fragrances last?
+            - img
+        - heading "What makes DELURE different from other luxury perfumes?" [level=3] [ref=e248]:
+          - button "What makes DELURE different from other luxury perfumes?" [ref=e249]:
+            - text: What makes DELURE different from other luxury perfumes?
+            - img
+        - heading "Do you offer samples before purchasing?" [level=3] [ref=e251]:
+          - button "Do you offer samples before purchasing?" [ref=e252]:
+            - text: Do you offer samples before purchasing?
+            - img
+        - heading "What is your shipping policy?" [level=3] [ref=e254]:
+          - button "What is your shipping policy?" [ref=e255]:
+            - text: What is your shipping policy?
+            - img
+        - heading "Are your products cruelty-free?" [level=3] [ref=e257]:
+          - button "Are your products cruelty-free?" [ref=e258]:
+            - text: Are your products cruelty-free?
+            - img
+        - heading "What is your return policy?" [level=3] [ref=e260]:
+          - button "What is your return policy?" [ref=e261]:
+            - text: What is your return policy?
+            - img
+    - generic [ref=e262]:
+      - img "Discover your signature scent" [ref=e264]
+      - generic [ref=e268]:
+        - paragraph [ref=e269]: Stay in touch
+        - heading "Find your signature scent" [level=2] [ref=e270]
+        - paragraph [ref=e271]: A few letters a year, never more. New compositions as they are released, and the occasional story from the studio in Grasse.
+        - generic [ref=e272]:
+          - textbox "Enter your email" [ref=e273]
+          - button "Subscribe" [ref=e274]
+        - paragraph [ref=e276]: By subscribing, you agree to our Privacy Policy
+    - generic [ref=e278]:
+      - generic [ref=e279]:
+        - generic [ref=e280]:
+          - link "DELURE" [ref=e281] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=e282]: Fragrance composed by hand in Grasse, made to become your own.
+          - generic [ref=e283]:
+            - link "Instagram" [ref=e284] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e285]
+            - link "Facebook" [ref=e288] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e289]
+            - link "Twitter" [ref=e291] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e292]
+        - generic [ref=e294]:
+          - heading "Shop" [level=3] [ref=e295]
+          - list [ref=e296]:
+            - listitem [ref=e297]:
+              - link "All Fragrances" [ref=e298] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e299]:
+              - link "Discovery Set" [ref=e300] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e301]:
+              - link "Gift Sets" [ref=e302] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e303]:
+              - link "Accessories" [ref=e304] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e305]:
+          - heading "About" [level=3] [ref=e306]
+          - list [ref=e307]:
+            - listitem [ref=e308]:
+              - link "Our Story" [ref=e309] [cursor=pointer]:
+                - /url: "#story"
+            - listitem [ref=e310]:
+              - link "Ingredients" [ref=e311] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e312]:
+              - link "Sustainability" [ref=e313] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e314]:
+              - link "Press" [ref=e315] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e316]:
+          - heading "Support" [level=3] [ref=e317]
+          - list [ref=e318]:
+            - listitem [ref=e319]:
+              - link "Contact Us" [ref=e320] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e321]:
+              - link "FAQ" [ref=e322] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e323]:
+              - link "Shipping" [ref=e324] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e325]:
+              - link "Returns" [ref=e326] [cursor=pointer]:
+                - /url: "#"
+      - generic [ref=e327]:
+        - paragraph [ref=e328]: © 2026 DELURE. All rights reserved.
+        - generic [ref=e329]:
+          - link "Privacy Policy" [ref=e330] [cursor=pointer]:
+            - /url: "#"
+          - link "Terms of Service" [ref=e331] [cursor=pointer]:
+            - /url: "#"
+          - link "Cookie Policy" [ref=e332] [cursor=pointer]:
+            - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=e338] [cursor=pointer]:
+    - img [ref=e339]

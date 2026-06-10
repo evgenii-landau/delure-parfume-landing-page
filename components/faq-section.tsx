@@ -12,27 +12,27 @@ import {
 const faqs = [
   {
     question: "How long do DELURE fragrances last?",
-    answer: "Our Eau de Parfum concentration ensures longevity of 8-12 hours on skin. The scent will continue to evolve throughout the day, revealing different facets as it interacts with your natural chemistry.",
+    answer: "As an Eau de Parfum, it holds for eight to twelve hours on skin and keeps shifting as it goes. How it settles depends on your own chemistry, so it will smell a little different on you than on anyone else.",
   },
   {
     question: "What makes DELURE different from other luxury perfumes?",
-    answer: "We source the rarest natural ingredients from ethical suppliers worldwide, and each fragrance is handcrafted by our master perfumers in Grasse, France. Our commitment to quality means no shortcuts—ever.",
+    answer: "Every fragrance is composed by hand in Grasse, from naturals we buy directly from growers we trust. We take the slow route at every step, and you can smell it in the wearing.",
   },
   {
     question: "Do you offer samples before purchasing?",
-    answer: "Yes, we offer a Discovery Set featuring all four of our signature fragrances in 2ml sizes. This allows you to experience each scent on your skin before committing to a full bottle.",
+    answer: "Yes. Our Discovery Set holds all four signature fragrances in 2ml vials, so you can live with each one on your skin before choosing a full bottle.",
   },
   {
     question: "What is your shipping policy?",
-    answer: "We offer complimentary worldwide shipping on all orders. Your fragrance will be carefully packaged and typically arrives within 5-7 business days. Express shipping is available at checkout.",
+    answer: "Shipping is complimentary worldwide. Your order is packed by hand and usually arrives within five to seven business days. Express delivery is available at checkout.",
   },
   {
     question: "Are your products cruelty-free?",
-    answer: "Absolutely. DELURE is committed to ethical practices. We never test on animals, and we carefully vet all our suppliers to ensure they share our values. Many of our ingredients are also sustainably sourced.",
+    answer: "Always. We have never tested on animals, and we hold our suppliers to the same line. Where we can, we choose growers who farm sustainably.",
   },
   {
     question: "What is your return policy?",
-    answer: "We want you to be completely satisfied. If you're not in love with your fragrance, you may return any unused portion within 30 days for a full refund or exchange.",
+    answer: "If a scent is not right for you, return what is left within thirty days for a refund or an exchange. Choosing a fragrance is personal, and we would rather you wear one you love.",
   },
 ]
 
@@ -67,9 +67,9 @@ export function FAQSection() {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="border-b border-border/50 pb-4"
+                className="border-b border-foreground/10 pb-4"
               >
-                <AccordionTrigger className="text-left font-serif text-lg hover:no-underline">
+                <AccordionTrigger className="text-left font-serif text-lg hover:no-underline focus-visible:ring-0 focus-visible:border-transparent focus-visible:text-accent">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground leading-relaxed pt-2">

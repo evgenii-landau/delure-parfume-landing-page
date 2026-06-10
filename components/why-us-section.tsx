@@ -2,28 +2,23 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Clock, Sparkles, Leaf, Package } from "lucide-react"
 
 const features = [
   {
-    icon: Clock,
-    title: "Long-lasting Scent",
-    description: "Our fragrances are designed to evolve beautifully throughout the day, lasting 12+ hours on skin.",
+    title: "It stays with you",
+    description: "A single application carries through the day, shifting as it goes. Twelve hours, often more.",
   },
   {
-    icon: Sparkles,
-    title: "Handcrafted Formula",
-    description: "Each perfume is meticulously crafted by our master perfumers using traditional techniques.",
+    title: "Made by hand",
+    description: "Every formula is composed by our perfumers in Grasse, the old way, without shortcuts.",
   },
   {
-    icon: Leaf,
-    title: "Rare Ingredients",
-    description: "We source the finest natural ingredients from ethical suppliers around the world.",
+    title: "Honest materials",
+    description: "We buy our naturals from growers we know, and we pay what they are worth.",
   },
   {
-    icon: Package,
-    title: "Sustainable Packaging",
-    description: "Luxurious presentation meets environmental responsibility with recyclable materials.",
+    title: "Kept, not discarded",
+    description: "Heavy glass and refillable bottles, made to live on your shelf rather than in the bin.",
   },
 ]
 
@@ -32,7 +27,7 @@ export function WhyUsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-24 md:py-32 lg:py-40 bg-secondary">
+    <section ref={ref} className="py-24 md:py-32 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -44,31 +39,29 @@ export function WhyUsSection() {
             Why DELURE
           </p>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-balance">
-            The DELURE difference
+            Why it lingers
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {features.map((feature, index) => {
-            const Icon = feature.icon
-            return (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-background mb-6">
-                  <Icon className="h-6 w-6 text-foreground" />
-                </div>
-                <h3 className="font-serif text-xl mb-3">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            )
-          })}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-14 lg:gap-x-16">
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              className="text-left"
+            >
+              <div className="w-8 h-px bg-foreground/25 mb-6" />
+              <span className="block font-sans text-xs font-light tracking-[0.3em] text-muted-foreground mb-3">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="font-serif text-2xl mb-4">{feature.title}</h3>
+              <p className="font-sans font-light text-sm text-muted-foreground leading-[1.7]">
+                {feature.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

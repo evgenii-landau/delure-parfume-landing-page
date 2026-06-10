@@ -6,17 +6,17 @@ import { useRef } from "react"
 const notes = [
   {
     type: "Top Notes",
-    description: "The first impression—bright and captivating",
+    description: "The opening. Bright, and gone too soon.",
     ingredients: ["Bergamot", "Pink Pepper", "Mandarin", "Cardamom"],
   },
   {
     type: "Heart Notes",
-    description: "The soul of the fragrance—rich and complex",
+    description: "The heart. Where the fragrance truly lives.",
     ingredients: ["Bulgarian Rose", "Jasmine Absolute", "Iris", "Violet"],
   },
   {
     type: "Base Notes",
-    description: "The lasting memory—deep and sensual",
+    description: "The trail. What stays after you leave.",
     ingredients: ["Oud Wood", "Amber", "Musk", "Sandalwood"],
   },
 ]
@@ -85,13 +85,11 @@ export function FragranceNotesSection() {
                   {note.description}
                 </p>
 
-                <ul>
-                  {note.ingredients.map((ingredient, i) => (
+                <ul className="space-y-4">
+                  {note.ingredients.map((ingredient) => (
                     <li
                       key={ingredient}
-                      className={`py-3 text-sm tracking-wide text-foreground/80 ${
-                        i > 0 ? "border-t border-foreground/15" : ""
-                      }`}
+                      className="text-sm tracking-wide text-foreground/80"
                     >
                       {ingredient}
                     </li>

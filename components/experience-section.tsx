@@ -34,7 +34,7 @@ export function ExperienceSection() {
             className="relative aspect-square overflow-hidden"
           >
             <Image
-              src="/images/experience-main.jpg"
+              src="/images/experience-main.webp"
               alt="Luxury unboxing experience"
               fill
               className="object-cover"
@@ -50,7 +50,7 @@ export function ExperienceSection() {
               className="relative aspect-square overflow-hidden"
             >
               <Image
-                src="/images/experience-detail-1.jpg"
+                src="/images/experience-detail-1.webp"
                 alt="Premium glass bottle"
                 fill
                 className="object-cover"
@@ -64,7 +64,7 @@ export function ExperienceSection() {
               className="relative aspect-square overflow-hidden"
             >
               <Image
-                src="/images/experience-detail-2.jpg"
+                src="/images/experience-detail-2.webp"
                 alt="Luxurious packaging"
                 fill
                 className="object-cover"
@@ -75,11 +75,11 @@ export function ExperienceSection() {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="col-span-2 bg-secondary p-8 flex flex-col justify-center"
+              className="col-span-2 pt-4"
             >
-              <h3 className="font-serif text-2xl mb-4">Tactile Luxury</h3>
+              <h3 className="font-serif text-2xl mb-4">A quiet ritual</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Every element is designed to delight—from the weight of the hand-blown glass bottle to the soft touch of our signature packaging. The magnetic closure, the embossed logo, the silk ribbon—each detail tells our story of uncompromising quality.
+                It begins before the scent. The box is heavy in the hand. You lift the lid against the soft pull of a magnet, fold back the tissue, and loosen the ribbon. The glass underneath is cool and weighted, blown by hand. By the time you spray, the wearing has already begun.
               </p>
             </motion.div>
           </div>

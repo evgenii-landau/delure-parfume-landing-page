@@ -9,59 +9,52 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 const products = [
   {
     id: 1,
-    name: "Éclat Noir",
-    description: "A mysterious blend of oud and amber",
-    price: "$285",
-    image: "/images/product-1.jpg",
+    name: "Lumière d'Or",
+    description: "Radiant citrus with a golden heart of pure amber.",
+    price: "$145",
+    image: "/images/fragrances/lumiere_dor.webp",
   },
   {
     id: 2,
-    name: "Lumière d'Or",
-    description: "Radiant citrus with a golden heart",
-    price: "$245",
-    image: "/images/product-2.jpg",
+    name: "Velours Rose",
+    description: "A velvet touch of powdery rose wrapped in soft leather.",
+    price: "$165",
+    image: "/images/fragrances/velours_rose.webp",
   },
   {
     id: 3,
-    name: "Velours Rose",
-    description: "Delicate rose enveloped in silk",
-    price: "$265",
-    image: "/images/product-3.jpg",
+    name: "Nuit Éternelle",
+    description: "The enigmatic essence of a starlit midnight.",
+    price: "$195",
+    image: "/images/fragrances/nuit_eternelle.webp",
   },
   {
     id: 4,
-    name: "Nuit Éternelle",
-    description: "The essence of a starlit evening",
-    price: "$295",
-    image: "/images/product-4.jpg",
+    name: "Jardin Émeraude",
+    description: "Fresh, crisp greens with a deep woody soul.",
+    price: "$155",
+    image: "/images/fragrances/jardin_emeraude.webp",
   },
   {
     id: 5,
-    name: "Jardin Émeraude",
-    description: "Fresh greens with a woody soul",
-    price: "$275",
-    image: "/images/product-5.jpg",
+    name: "Brume Céleste",
+    description: "Ethereal white musk balanced with pure marble elegance.",
+    price: "$175",
+    image: "/images/fragrances/brume_celeste.webp",
   },
   {
     id: 6,
-    name: "Brume Céleste",
-    description: "Ethereal musk kissed by clouds",
-    price: "$255",
-    image: "/images/product-6.jpg",
+    name: "Oud Impérial",
+    description: "A majestic blend of smoky charcoal and rich gold filigree oud.",
+    price: "$210",
+    image: "/images/fragrances/oud_imperial.webp",
   },
   {
     id: 7,
-    name: "Passion Bordeaux",
-    description: "Rich berries in velvet warmth",
-    price: "$315",
-    image: "/images/product-7.jpg",
-  },
-  {
-    id: 8,
-    name: "Soleil Champagne",
-    description: "Sparkling elegance at golden hour",
-    price: "$305",
-    image: "/images/product-8.jpg",
+    name: "Éclat Pur",
+    description: "Crystal-clear minimalist fragrance with a striking platinum finish.",
+    price: "$150",
+    image: "/images/fragrances/eclat_pur.webp",
   },
 ]
 
@@ -95,11 +88,11 @@ export function BestsellersSection() {
               The Collection
             </p>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-balance">
-              Our bestsellers
+              Signatures of the house
             </h2>
           </div>
-          <div className="flex items-center gap-4 mt-6 md:mt-0">
-            <div className="flex gap-3">
+          <div className="hidden md:flex items-center gap-4">
+            <div className="flex gap-6">
               <Button
                 variant="outline"
                 size="icon"
@@ -144,7 +137,7 @@ export function BestsellersSection() {
             }}
           >
             <div className="bg-secondary/40 p-4 md:p-5 overflow-hidden">
-              <div className="relative aspect-[3/4] overflow-hidden">
+              <div className="relative aspect-square overflow-hidden">
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -155,15 +148,37 @@ export function BestsellersSection() {
               </div>
             </div>
 
-            <div className="mt-5 flex items-start justify-between gap-4">
+            <div className="mt-5">
               <h3 className="font-sans text-sm font-medium uppercase tracking-widest text-charcoal">
                 {product.name}
               </h3>
-              <p className="font-serif text-lg text-foreground/80 shrink-0">{product.price}</p>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{product.description}</p>
+              <p className="mt-2 text-sm tracking-wide text-foreground/60">{product.price}</p>
             </div>
-            <p className="mt-2 text-sm text-muted-foreground">{product.description}</p>
           </div>
         ))}
+      </div>
+
+      {/* Mobile navigation — moved to the bottom, centered under the cards */}
+      <div className="flex md:hidden justify-center gap-6 mt-8 px-6">
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => scroll("left")}
+          aria-label="Previous"
+          className="h-12 w-12 rounded-full border-foreground/20 hover:bg-foreground hover:text-background transition-all"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </Button>
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => scroll("right")}
+          aria-label="Next"
+          className="h-12 w-12 rounded-full border-foreground/20 hover:bg-foreground hover:text-background transition-all"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </Button>
       </div>
 
     </section>
